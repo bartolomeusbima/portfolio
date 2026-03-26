@@ -1,0 +1,138 @@
+.blog-post-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 40px 28px 48px;
+}
+
+.blog-post-main {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    padding: 100px 0 48px;
+}
+
+.blog-post-hero {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    margin-bottom: 52px;
+    text-align: center;
+}
+
+.blog-post-title {
+    width: min(100%, 700px);
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.18;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+
+.blog-post-date {
+    margin: 0;
+    color: var(--text-faint);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+}
+
+.blog-post-cover {
+    margin: 0 0 52px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 28px 58px rgba(0, 0, 0, 0.24);
+}
+
+.blog-post-cover img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.blog-post-copy {
+    display: grid;
+    gap: 48px;
+}
+
+.blog-post-copy-block {
+    display: grid;
+    gap: 30px;
+}
+
+.blog-post-section-title {
+    margin: 0;
+    color: var(--text);
+    font-size: 26px;
+    line-height: 1.24;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.blog-post-section-title-nowrap {
+    white-space: nowrap;
+}
+
+.blog-post-copy-block p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 0.1px;
+}
+
+.blog-post-main [data-init-blog-article] {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+}
+
+@media (max-width: 1440px) {
+    .blog-post-shell {
+        padding: 32px 24px 188px;
+    }
+
+    .blog-post-main {
+        padding-top: 88px;
+    }
+}
+
+@media (max-width: 810px) {
+    .blog-post-shell {
+        padding: 24px 18px 150px;
+    }
+
+    .blog-post-main {
+        padding-top: 72px;
+    }
+
+    .blog-post-hero {
+        margin-bottom: 36px;
+    }
+
+    .blog-post-cover {
+        margin-bottom: 36px;
+        border-radius: 22px;
+    }
+
+    .blog-post-copy {
+        gap: 30px;
+    }
+
+    .blog-post-copy-block {
+        gap: 18px;
+    }
+
+    .blog-post-section-title {
+        font-size: 22px;
+    }
+
+    .blog-post-section-title-nowrap {
+        white-space: normal;
+    }
+
+    .blog-post-copy-block p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+}

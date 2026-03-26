@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Hostinger</title>
+  <rect width="64" height="64" rx="12" fill="#673de6"/>
+  <path d="M20 16h8v32h-8V16Zm16 0h8v12h-8V16Zm0 20h8v12h-8V36Zm-8-4h8v8h-8v-8Z" fill="#fff"/>
+</svg>

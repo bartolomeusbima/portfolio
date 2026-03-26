@@ -1,0 +1,260 @@
+:root {
+    --preview-bg: #eef1f5;
+    --paper: #ffffff;
+    --ink: #111111;
+    --muted: #5b5b5b;
+    --line: #d9d9d9;
+}
+
+* { box-sizing: border-box; }
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    background: var(--preview-bg);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.preview-shell {
+    padding: 24px;
+}
+
+.preview-toolbar {
+    width: min(100%, 920px);
+    margin: 0 auto 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.preview-copy {
+    color: #667085;
+    font-size: 14px;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.preview-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid #d8dde6;
+    background: #ffffff;
+    color: #111111;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.preview-action-primary {
+    background: #111111;
+    color: #ffffff;
+    border-color: #111111;
+    cursor: pointer;
+}
+
+.resume-stack {
+    display: grid;
+    gap: 18px;
+}
+
+.resume-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+    padding: 22mm 18mm 18mm;
+    overflow: hidden;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.resume-name {
+    margin: 0;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 1.12;
+}
+
+.resume-contact-line {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.resume-section {
+    margin-top: 22px;
+}
+
+.resume-section-first {
+    margin-top: 0;
+}
+
+.resume-section-title {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.resume-paragraph {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: justify;
+}
+
+.experience-item + .experience-item {
+    margin-top: 18px;
+}
+
+.experience-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 2px;
+}
+
+.experience-title {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.experience-period {
+    flex-shrink: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: right;
+}
+
+.experience-company {
+    margin: 0 0 2px;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.experience-bullets,
+.project-bullets,
+.meta-bullets {
+    margin: 3px 0 0 18px;
+    padding-left: 15px;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.experience-bullets li,
+.project-bullets li,
+.meta-bullets li {
+    margin: 2px 0;
+}
+
+.experience-bullets-continued {
+    margin-top: 0;
+}
+
+.project-entry + .project-entry {
+    margin-top: 10px;
+}
+
+.project-title {
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+.education-row,
+.language-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.education-row strong,
+.language-label {
+    display: block;
+}
+
+.skill-list {
+    margin: 0 0 0 18px;
+    padding-left: 15px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.skill-list li {
+    margin: 3px 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .resume-page {
+        transform-origin: top center;
+        transform: scale(0.9);
+        margin-bottom: -28mm;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .preview-shell {
+        padding: 14px;
+    }
+
+    .resume-page {
+        transform: scale(0.72);
+        margin-bottom: -82mm;
+    }
+}
+
+@media print {
+    body {
+        background: #ffffff;
+    }
+
+    .preview-shell {
+        padding: 0;
+    }
+
+    .preview-toolbar {
+        display: none;
+    }
+
+    .resume-stack {
+        gap: 0;
+    }
+
+    .resume-page {
+        box-shadow: none;
+        margin: 0;
+        transform: none;
+    }
+}

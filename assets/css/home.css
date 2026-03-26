@@ -1,0 +1,330 @@
+:root {
+    --bg: #080808;
+    --panel: rgba(25, 25, 25, 0.9);
+    --panel-solid: #181818;
+    --border: rgba(255, 255, 255, 0.085);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --text: #ece7e7;
+    --text-soft: rgba(236, 231, 231, 0.82);
+    --text-muted: rgba(236, 231, 231, 0.58);
+    --text-faint: rgba(236, 231, 231, 0.34);
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.light-mode {
+    --bg: #f5f3ef;
+    --panel: rgba(255, 255, 255, 0.88);
+    --panel-solid: #ffffff;
+    --border: rgba(20, 20, 20, 0.08);
+    --border-strong: rgba(20, 20, 20, 0.16);
+    --text: #121212;
+    --text-soft: rgba(18, 18, 18, 0.76);
+    --text-muted: rgba(18, 18, 18, 0.52);
+    --text-faint: rgba(18, 18, 18, 0.32);
+    --shadow: 0 24px 70px rgba(24, 24, 24, 0.08);
+}
+
+a,
+button {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    background: none;
+    color: inherit;
+}
+
+.page-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 18px 28px;
+}
+
+
+.hero {
+    width: min(100%, 860px);
+    margin: 0 auto;
+    padding: 8px 24px 24px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 20px;
+    color: var(--text-faint);
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin: 0 auto;
+    max-width: 760px;
+    font-size: 48px;
+    line-height: 1.14;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+}
+
+.hero-title-line {
+    display: block;
+}
+
+.hero-title-line-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.avatar {
+    display: inline-flex;
+    width: clamp(52px, 3.7vw, 64px);
+    height: clamp(52px, 3.7vw, 64px);
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    margin: 0;
+    vertical-align: middle;
+    font-size: clamp(22px, 1.8vw, 27px);
+    font-weight: 800;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.12) 36%),
+        linear-gradient(135deg, #e8d1d7, #8ca5df 46%, #d4a6b8);
+    box-shadow: 0 8px 28px rgba(122, 140, 204, 0.28);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.prompt-list {
+    width: min(100%, 672px);
+    margin: 58px auto 0;
+    display: grid;
+    gap: 24px;
+}
+
+.prompt-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px 1fr 26px;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    color: var(--text);
+    padding: 20px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.015);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+.prompt-card:hover,
+.prompt-card.is-active {
+    transform: translateY(-1px);
+    border-color: var(--border-strong);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+body.light-mode .prompt-card:hover,
+body.light-mode .prompt-card.is-active {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+.prompt-card-button {
+    text-align: left;
+    letter-spacing: 0.1px;
+}
+
+.prompt-key {
+    color: var(--text-faint);
+    font-size: 15px;
+}
+
+.prompt-copy {
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: left;
+    letter-spacing: 0.1px;
+}
+
+.prompt-arrow {
+    justify-self: end;
+    color: var(--text-soft);
+    font-size: 22px;
+}
+
+.hero-note {
+    margin: 60px 0 0;
+    text-align: center;
+}
+
+.ghost-link {
+    display: inline-flex;
+    color: var(--text-soft);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    padding-bottom: 2px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    transition: color 0.25s ease, border-bottom-color 0.25s ease, transform 0.25s ease;
+}
+
+.ghost-link:hover {
+    color: var(--text);
+    border-bottom-color: rgba(255, 255, 255, 0.34);
+    transform: translateY(-1px);
+}
+
+body.light-mode .ghost-link {
+    border-bottom-color: rgba(18, 18, 18, 0.18);
+}
+
+body.light-mode .ghost-link:hover {
+    border-bottom-color: rgba(18, 18, 18, 0.34);
+}
+
+.message-banner {
+    margin: 28px auto 0;
+    width: fit-content;
+    max-width: 100%;
+    padding: 14px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-soft);
+    text-align: center;
+}
+
+body.light-mode .message-banner {
+    background: rgba(0, 0, 0, 0.035);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.section-hero {
+    width: min(100%, 820px);
+    text-align: left;
+    letter-spacing: 0.1px;
+}
+
+.section-title {
+    max-width: 12ch;
+}
+
+.section-hero .hero-title,
+.section-hero .section-description {
+    text-align: left;
+    letter-spacing: 0.1px;
+}
+
+.section-hero .section-actions {
+    width: min(100%, 680px);
+}
+
+.section-description {
+    margin: 24px 0 0;
+    max-width: 640px;
+    color: var(--text-soft);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
+}
+
+.section-actions {
+    margin-top: 42px;
+    display: grid;
+    gap: 18px;
+}
+
+@media (max-width: 1440px) {
+    .page-shell {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 24px 24px 144px;
+    }
+
+    .hero {
+        width: 100%;
+        padding: 96px 0 32px;
+    }
+
+    .hero-title {
+        max-width: 700px;
+        font-size: 40px;
+        letter-spacing: 1px;
+    }
+}
+@media (max-width: 810px) {
+    .page-shell {
+        padding: 18px 18px 132px;
+    }
+
+    .hero {
+        padding-top: 76px;
+    }
+
+    .hero-title {
+        max-width: 100%;
+        font-size: 32px;
+    }
+
+    .avatar {
+        margin: 0 6px;
+    }
+
+    .prompt-list {
+        gap: 16px;
+        margin-top: 42px;
+    }
+
+    .prompt-card {
+        grid-template-columns: 26px 1fr 24px;
+        padding: 18px 18px;
+        gap: 10px;
+    }
+
+    .prompt-copy {
+        font-size: 14px;
+    }
+
+    .ghost-link {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+

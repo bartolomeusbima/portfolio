@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-soft: #f6f6f6;
+    --text: #111111;
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    --border: #eeeeee;
+    --chip: #f2f2f2;
+}
+
+body.dark-mode {
+    --bg: #0f0f10;
+    --surface: #17181a;
+    --surface-soft: #121315;
+    --text: #f5f5f5;
+    --text-secondary: #c9c9c9;
+    --text-muted: #9a9a9a;
+    --border: #2a2c30;
+    --chip: #202227;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.container {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+    padding: 14px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 10px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.lang-btn {
+    border: 0;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.lang-btn.active {
+    color: var(--text);
+    font-weight: 700;
+    background: var(--surface-soft);
+}
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.theme-btn:hover,
+.lang-btn:hover {
+    transform: translateY(-1px);
+}
+
+.theme-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    display: block;
+}
+
+.hero {
+    padding: 80px 0 40px;
+}
+
+.label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.subtitle {
+    max-width: 700px;
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.hero-banner {
+    width: 100%;
+    margin: 28px 0 40px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.hero-banner-item {
+    flex: 0 0 auto;
+}
+
+.hero-banner img {
+    display: block;
+    width: auto;
+    height: clamp(220px, 32vw, 360px);
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 0 0 40px;
+}
+
+.meta-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 10px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.meta-value {
+    font-size: 14px;
+    color: var(--text);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 20px;
+    padding-bottom: 60px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.card + .card {
+    margin-top: 20px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+
+.card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+.list {
+    padding-left: 18px;
+}
+
+.list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+.list li:last-child {
+    margin-bottom: 0;
+}
+
+.flow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.flow-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    background: var(--surface-soft);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.step {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.flow-item p {
+    color: var(--text);
+    font-size: 15px;
+}
+
+.flow-label {
+    margin-bottom: 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.flow-note {
+    margin-top: 28px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.navbar .card {
+    margin-top: 0;
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech span {
+    font-size: 13px;
+    padding: 6px 12px;
+    background: var(--chip);
+    color: var(--text);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+@media (max-width: 900px) {
+    .meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-banner {
+        gap: 12px;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar-inner {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .meta {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .hero-banner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        overflow-x: visible;
+    }
+
+    .hero-banner img {
+        width: 100%;
+        height: auto;
+    }
+}
